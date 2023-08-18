@@ -23,7 +23,7 @@ def cli():
 @click.command()
 @click.argument("spotify_playlist_id")
 @click.option("--public", is_flag=True, help="Create a public playlist")
-@click.option("--private", is_flag=True, help="Create a public playlist")
+@click.option("--private", is_flag=True, help="Create a private playlist")
 @click.option("--name", "-n", help="Name of the YouTube playlist to be created")
 @click.option("--description", "-d", help="Description of the playlist")
 @click.option(
