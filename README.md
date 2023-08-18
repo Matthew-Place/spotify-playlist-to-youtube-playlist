@@ -53,7 +53,7 @@ pip install -r requirements.txt
 1. Go to the Spotify Developer Dashboard and log in with your Spotify account.
 2. Click on the "Create an App" button and fill out the necessary information, such as the name and description of your application.
 3. Once you've created the app, you'll be taken to the app dashboard. Here, you'll find your client ID and client secret, which are used to authenticate your application with the Spotify API.
-4. Add you client id and secert in `.env` file
+4. Add you client id and secret in `.env` file
 
 ```env
 CLIENT_ID="xxxxxxxxxxxxxxxxxx"
@@ -63,9 +63,23 @@ CLIENT_SECRET="xxxxxxxxxxxxxxxx"
 
 #### Quick Guide
 
-- [Create a new YouTube playlist from Spotify playlist](#create-a-youtube-playlist-from-spotify-playlist)
-- [Sync YouTube playlist with spotify playlist](#sync-your-youtube-playlist-with-your-spotify-playlist)
-- [Sync multiple playlists](#sync-multiple-playlist)
+- [About](#about)
+- [Features](#features)
+- [Setup](#setup)
+  - [Requirements](#requirements)
+  - [YouTube](#youtube)
+  - [Spotify](#spotify)
+- [Usage](#usage)
+    - [Quick Guide](#quick-guide)
+  - [Format](#format)
+    - [Examples](#examples)
+- [Sync YouTube Playlist with Spotify playlist](#sync-youtube-playlist-with-spotify-playlist)
+  - [Usage](#usage-1)
+- [Sync Multiple playlist](#sync-multiple-playlist)
+  - [How this works](#how-this-works)
+  - [Contact Me](#contact-me)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ### Format
 
