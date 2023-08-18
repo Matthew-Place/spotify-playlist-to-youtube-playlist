@@ -1,9 +1,10 @@
+import json
 import os
 from dataclasses import dataclass
 
+import dotenv
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-import dotenv
 
 dotenv.load_dotenv()
 
@@ -27,11 +28,22 @@ class SpotifyClient:
     def get_playlist(self, id: str):
         playlist = self.spotify.playlist(id)
         queries = []
-        tracks = playlist["tracks"]["items"]
-        for track in tracks:
+        batch_tracks = playlist["tracks"]
+        all_tracks = batch_tracks["items"]
+        while batch_tracks["next"]:
+            batch_tracks = self.spotify.next(batch_tracks)
+            all_tracks.extend(batch_tracks["items"])
+        playlist["tracks"]["items"] = all_tracks
+        with open(f"{playlist['name']}.json", "w") as f:
+            json.dump(playlist, f, indent=4)
+        for track in all_tracks:
             track_name = track["track"]["name"]
             artists = ", ".join(
                 [artist["name"] for artist in track["track"]["artists"]]
             )
             queries.append(f"{track_name} by {artists}")
         return Playlist(playlist["name"], playlist["description"], queries)
+
+if __name__ == "__main__":
+    spotify = SpotifyClient()
+    print(spotify.get_playlist("4YaYDXynaq60Q8nHwD9zYT"))
